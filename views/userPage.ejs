@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/userPage.css" />
+  <title><%= username %></title>
+  <script>
+    const userId = '<%= id %>' // ---------> Getting the user Id (used in userPage.js)
+  </script>
+</head>
+<body>
+  <div class="wrapper"></div>
+    <h1>To-do-list</h1>
+
+    <!-- output list -->
+    <div id="taskContainer">
+  </div>
+
+  <footer>
+    <form class="new-item-form">
+      <div class="field">
+        <label>date:</label>
+        <input type="date" id="date">
+      </div>
+      <div class="field">
+        <label>Tittle</label>
+        <input type="text" id="tittle">
+      </div>   
+      <div id="Description">
+        <label>Description</label>
+        <textarea id="Description-input"></textarea>
+      </div>
+      <div>
+        <label>Work team</label>
+        <select id="workTeams">
+        </select>
+      </div>
+      <button id="addButton">Add</button>
+    </form>
+  </footer>
+
+  <script src='/userPage.js'></script>
+</body>
+</html>

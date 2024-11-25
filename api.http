@@ -1,0 +1,63 @@
+POST http://localhost:3000/user/register
+Content-Type: application/json
+
+{
+    "username" : "IvanRoot",
+    "password" : "Iamp-2608"
+}
+
+### log user
+
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "username" : "IvanRoot",
+    "password" : "Iamp-2608"
+}
+### Get user information
+
+GET http://localhost:3000/user/A
+
+### Create a new team
+
+POST http://localhost:3000/team/register
+Content-Type: application/json
+
+{
+    "title": "team B",
+    "description" : "Just a description",
+    "members" : [
+        "673154db1266b8e64a5e7dc5",
+        "67315d2367e118e4f61ea6ee"
+    ]
+}
+
+### Getting team information
+
+GET http://localhost:3000/team/id/6732600474463d58f6516f1e
+
+### Create a new task
+
+POST http://localhost:3000/task/create
+Content-Type: application/json
+
+{
+    "tittle": "task 13",
+    "description": "This is the team number 13",
+    "workTeam": "6732600474463d58f6516f1e",
+    "dueDate": "2024-11-20T17:30:00.000Z"
+}
+
+### Getting tasks information 
+
+GET http://localhost:3000/task/673bf0963d36e143e1f23dda
+
+### Getting teams by user ID
+
+GET http://localhost:3000/team/filterByUser/673154db1266b8e64a5e7dc5
+
+
+### Getting tasks by team ID
+
+GET http://localhost:3000/task/team/6732600474463d58f6516f1e
