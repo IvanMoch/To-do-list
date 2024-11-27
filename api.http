@@ -61,3 +61,7 @@ GET http://localhost:3000/team/filterByUser/673154db1266b8e64a5e7dc5
 ### Getting tasks by team ID
 
 GET http://localhost:3000/task/team/6732600474463d58f6516f1e
+
+### Erase a task by ID
+
+DELETE http://localhost:3000/task/67411dd6fae0f9250b915133

@@ -4,6 +4,8 @@ const descriptionField = document.querySelector('#Description-input')
 const workTeamsField = document.querySelector('#workTeams')
 const addButton = document.querySelector('#addButton')
 const taskContainer = document.querySelector('#taskContainer')
+const doneButton = document.querySelectorAll('.finishTask')
+const logoutButton = document.querySelector('#logout-button')
 
 
 //Save a new Task
@@ -27,21 +29,65 @@ addButton.addEventListener('click', (e) => {
 
     .then((res) => {
       if (res.ok) {
-        alert(workTeamsField.value)
-        setTimeout(() => {
-          alert('The new task was saved')
-        }, 2000)
-    }
-  })
+        return res.json()
+      }
+      console.log('Error while fetching');
+      
+    })
+    .then((savedTask) => {
+
+      const newTask = document.createElement('div')
+      const dueDate = new Date(savedTask.dueDate).toUTCString()
+
+      newTask.className = 'taskItem'
+      newTask.id = savedTask._id
+
+      newTask.innerHTML = `
+              
+        <h2>${savedTask.tittle}</h2>
+        <h3>${dueDate}</h3>
+        <p>${savedTask.description}</p>
+        <h3>${savedTask.title}</h3>
+        <button class="finishTask">Done</button>
+        <button class="deleteTask">delete</button>
+              
+        `
+      taskContainer.appendChild(newTask)
+      
+      newTask.querySelector('.finishTask').addEventListener('click', (e) => {
+          e.preventDefault()
+          deleteTask(task._id)
+          })
+
+    })
 
 })
 
+//logout 
 
-//show all the teams in the workTeamsField
+logoutButton.addEventListener('click', (e) => {
+  e.preventDefault()
+  
+  fetch('/user/logout', {
+    method: 'POST'
+  })
+    .then((res) => {
+      if (res.ok) {
+      return window.location.href = '/'
+      }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  await insertWorkTeams()
-  await getAllTasks()
+      alert('something goes wrong')
+      
+  })
+  })
+
+
+
+//Events when the DOm is loaded
+
+document.addEventListener('DOMContentLoaded', () => {
+  insertWorkTeams()
+  getAllTasks()
   })
 
 
@@ -109,8 +155,38 @@ function getAllTasks() { //TODO. solve the problem while fetching this API endpo
 
 
               taskContainer.appendChild(newTask)
+
+              //Setting a addEventListener to all the "Done" buttons
+
+              newTask.querySelector('.finishTask').addEventListener('click', (e) => {
+                e.preventDefault()
+                deleteTask(task._id)
+              })
             })
         })
     })
   })
+}
+
+function deleteTask(id) {
+
+  fetch(`/task/${id}`, {
+    method: 'DELETE'
+  })
+    .then((res) => {
+      if (res.ok) {
+      return res.json()
+      }
+      console.log('Error while fetching')
+    })
+    .then((deletedTask) => {
+      alert(`The task "${deletedTask.tittle}" is done`)
+      
+      const taskElement = document.getElementById(id)
+
+      if (taskElement) {
+        taskElement.remove()
+      }
+  })
+  
 }

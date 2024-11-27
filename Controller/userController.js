@@ -36,11 +36,15 @@ export class UserController {
         const token = jwt.sign({id: user.id,username: user.username, id: user._id},SECRET_KEY,{expiresIn:'1h'})
         
         if (user) {
-            res.cookie('AccessToken', token , { httpOnly: true, }).status(200).json(user)
+            res.cookie('AccessToken', token , { httpOnly: true }).status(200).json(user)
         } else {
             res.status(400).json({message : 'Invalid data'})
         }
     }
+
+    static logout = async (req, res) => {
+    res.clearCookie('AccessToken').render('index')
+   }
 
     static verifyUser = async (req, res) => {
 

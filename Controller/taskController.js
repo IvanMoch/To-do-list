@@ -40,4 +40,16 @@ export class TaskController{
 
         return res.status(400).json({message: 'Error while getting the task information'})
     }
+
+    static deleteTask = async (req, res) => {
+        const { id } = req.params
+        
+        const deletedTask = await mongoModel.deleteTask({ id })
+        
+        if (deletedTask) {
+            return res.status(200).json(deletedTask)
+        }
+
+        return res.status(400).json({error: 'Error while deleting the task'})
+    }
 }

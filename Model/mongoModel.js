@@ -152,4 +152,13 @@ export class mongoModel {
             console.log(error)
         }
     }
+
+    static async deleteTask({ id }) {
+        const deletedTask = await Task.findByIdAndDelete(id)
+
+        if (deletedTask) {
+            return deletedTask
+        }
+
+    }
 }
