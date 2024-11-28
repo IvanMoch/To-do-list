@@ -1,11 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create task</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Task</title>
+  <link rel="stylesheet" href="createTask.css">
+  <script>
+    const userId = '<%= id %>' // ---------> Getting the user Id (used in userPage.js)
+  </script>
 </head>
 <body>
-    
+  <!-- Header -->
+  <header class="header">
+    <!-- Website Title -->
+    <div class="header-title">
+      <h1>To-Do-Web</h1>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <button class="nav-button" id="taskButton">Tasks</button>
+      <button class="nav-button" onclick="navigateTo('teams')">Teams</button>
+      <button class="nav-button" onclick="navigateTo('user')">User</button>
+    </nav>
+
+    <!-- Logout Button -->
+    <div class="logout">
+      <button class="logout-button" onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="form-container">
+      <h2>Create New Task</h2>
+      <form id="createTaskForm">
+        <!-- Title Field -->
+        <label for="taskTitle">Title</label>
+        <input type="text" id="taskTitle" name="taskTitle" placeholder="Enter task title" required>
+
+        <!-- Due Date Field -->
+        <label for="taskDueDate">Due Date</label>
+        <input type="date" id="taskDueDate" name="taskDueDate" required>
+
+        <!-- Description Field -->
+        <label for="taskDescription">Description</label>
+        <textarea id="taskDescription" name="taskDescription" placeholder="Enter task description" rows="5" required></textarea>
+
+        <!-- Teams Dropdown -->
+        <label for="taskTeam">Team</label>
+        <select id="taskTeam" name="taskTeam" required>
+          <option value="" disabled selected>Select a team</option>
+        </select>
+
+        <!-- Add Button -->
+        <button type="submit" id="addButton" class="add-button">Add Task</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="createTask.js"></script>
 </body>
 </html>

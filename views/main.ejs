@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/main.css" />
+  <title><%= username %></title>
+  <script>
+    const userId = '<%= id %>' // ---------> Getting the user Id (used in userPage.js)
+  </script>
+</head>
+
+
+<body>
+  
+  <header class="header">
+    <!-- Website Title -->
+    <div class="header-title">
+      <h1>To-Do-Web</h1>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <button class="nav-button" id="createTaskButton" >Create Task</button>
+      <button class="nav-button" >Teams</button>
+      <button class="nav-button" >User</button>
+    </nav>
+
+    <!-- Logout Button -->
+    <div class="logout">
+      <button id="logout-button">Logout</button>
+    </div>
+  </header>
+  
+  <div class="wrapper"></div>
+
+    <!-- output list -->
+    <div id="taskContainer">
+  </div>
+
+  <script src='/main.js'></script>
+</body>
+</html>

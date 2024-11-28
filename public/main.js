@@ -1,60 +1,131 @@
-/* eslint-disable no-undef */
-const logInButton = document.querySelector('#LogInContainer')
-const signUpButton = document.querySelector('#signUpContainer')
+const date = document.querySelector('#date')
+const tittleField = document.querySelector('#tittle')
+const descriptionField = document.querySelector('#Description-input')
+const workTeamsField = document.querySelector('#workTeams')
+const taskContainer = document.querySelector('#taskContainer')
+const doneButton = document.querySelectorAll('.finishTask')
+const logoutButton = document.querySelector('#logout-button')
+const createTaskButton = document.querySelector('#createTaskButton')
 
-logInButton.addEventListener('submit', (e) => {
+//Save a new Task
+
+//logout 
+
+logoutButton.addEventListener('click', (e) => {
   e.preventDefault()
-  const username = document.querySelector('#username').value
-  const password = document.querySelector('#password').value
-
-  login(username, password)
-})
-
-signUpButton.addEventListener('submit', (e) => {
-  e.preventDefault()
-
-  const username = document.querySelector('#Newusername').value
-  const password = document.querySelector('#NewPassword').value
-  const confPassword = document.querySelector('#ConfPassword').value
-
-  if (password === confPassword) {
-    fetch('/user/register', {
-      method: 'POST',
-      headers: {
-        'content-Type': 'application/json'
-      },
-      body: JSON.stringify({ username, password })
-
-    })
-      .then((res) => {
-        if (res.ok) {
-          login(username, password)
-        } else {
-          alert('something were wrong')
-        }
-      })
-  } else {
-    alert('both password should being equals')
-  }
-})
-
-function login (username, password) {
-  fetch('/user/login', {
-    method: 'POST',
-    headers: {
-      'content-Type': 'application/json'
-    },
-    body: JSON.stringify({ username, password })
-
+  
+  fetch('/user/logout', {
+    method: 'POST'
   })
     .then((res) => {
       if (res.ok) {
-        alert(`Welcome ${username}, you have logged in`)
-        setTimeout(() => {
-          window.location.href = `/user/${username}`
-        }, 2000)
-      } else {
-        alert('Something were wrong')
+      return window.location.href = '/'
       }
+
+      alert('something goes wrong')
+      
+  })
+})
+  
+
+//Go to the create task view
+
+createTaskButton.addEventListener('click', (e) => {
+  e.preventDefault()
+
+  fetch('/createTask')
+    .then((res) => {
+      if (res.ok) {
+      return window.location.href = '/createTask'
+      }
+      
+      alert('something goes wrong')
+  })
+})
+
+
+
+//Events when the DOm is loaded
+
+document.addEventListener('DOMContentLoaded', () => {
+  getAllTasks()
+  })
+
+
+
+  
+// insert all the task in the task List
+  
+function getAllTasks() { //TODO. solve the problem while fetching this API endpoint I think is cause I am calling it twice at same time
+  fetch(`/team/filterByUser/${userId}`)
+    .then((res) => {
+      if (res.ok) {
+      return res.json()
+      }
+      console.log('Error while fetching')
     })
+    .then((workteams) => {
+      workteams.forEach((element) => {
+        fetch(`/task/team/${element._id}`)
+          .then((res) => {
+            if (res.ok) {
+            return res.json()
+            }
+            console.log('Error while fetching "/task/team/"')
+          })
+          .then((tasks) => {
+            tasks.forEach((task) => {
+              const newTask = document.createElement('div')
+
+              const dueDate = new Date(task.dueDate).toISOString()
+              newTask.className = 'taskItem'
+              newTask.id = task._id
+
+              newTask.innerHTML = `
+              
+              <h2>${task.tittle}</h2>
+              <h3>${dueDate}</h3>
+              <p>${task.description}</p>
+              <h3>${element.title}</h3>
+              <button class="finishTask">Done</button>
+              <button class="deleteTask">delete</button>
+              
+              `
+
+
+              taskContainer.appendChild(newTask)
+
+              //Setting a addEventListener to all the "Done" buttons
+
+              newTask.querySelector('.finishTask').addEventListener('click', (e) => {
+                e.preventDefault()
+                deleteTask(task._id)
+              })
+            })
+        })
+    })
+  })
+}
+
+function deleteTask(id) {
+
+  fetch(`/task/${id}`, {
+    method: 'DELETE'
+  })
+    .then((res) => {
+      if (res.ok) {
+      return res.json()
+      }
+      console.log('Error while fetching')
+    })
+    .then((deletedTask) => {
+      alert(`The task "${deletedTask.tittle}" is done`)
+      
+      const taskElement = document.getElementById(id)
+
+      if (taskElement) {
+        taskElement.remove()
+      }
+  })
+  
 }

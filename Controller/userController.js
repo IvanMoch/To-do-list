@@ -5,16 +5,15 @@ import bcryptjs from 'bcryptjs'
 
 export class UserController {
     static getUserInf = async (req, res) => {
-        const token = req.cookies.AccessToken
+        const { username } = req.params
 
-        if(!token){ return res.status(400).send('not authorized')}
-        try {
-            const data = jwt.verify(token, SECRET_KEY)
-            res.render('userPage', data)
-        } catch (e) {
-            console.log(`Error: ${e}`)
-            res.status(400).send('<h1>User not found</h1>')
+        const userInf = await mongoModel.getUser({ username })
+        
+        if (userInf) {
+            return res.status(200).json(userInf)
         }
+
+        return res.status(400).json({Message : 'User does not exist'})
     }
 
     static insertUser = async (req, res) => {
@@ -33,7 +32,7 @@ export class UserController {
         const { username, password } = req.body
         
         const user = await mongoModel.logUser({ username, password })
-        const token = jwt.sign({id: user.id,username: user.username, id: user._id},SECRET_KEY,{expiresIn:'1h'})
+        const token = jwt.sign({id: user._id,username: user.username},SECRET_KEY,{expiresIn:'1h'})
         
         if (user) {
             res.cookie('AccessToken', token , { httpOnly: true }).status(200).json(user)

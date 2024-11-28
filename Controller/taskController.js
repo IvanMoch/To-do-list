@@ -1,3 +1,4 @@
+import { SECRET_KEY } from "../config.js"
 import { mongoModel } from "../Model/mongoModel.js"
 
 export class TaskController{
@@ -51,5 +52,16 @@ export class TaskController{
         }
 
         return res.status(400).json({error: 'Error while deleting the task'})
+    }
+
+    static createTaskView = async (req, res) => {
+        const token = req.cookies.AccessToken
+
+        try {
+            const data = jwt.verify(token, SECRET_KEY)
+            res.render('createTask', data)
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
