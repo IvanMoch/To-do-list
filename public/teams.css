@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  font-family: Roboto; 
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin-bottom: 100px;
+  background-color: #333;
+  color: #0066cc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #0066cc;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-button {
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #015bb6;
+}
+
+/* Logout Button */
+#logout-button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
+
+.footer p {
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Teams Container */
+.teams-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.team-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: scale(1.05);
+}
+
+.team-card h3 {
+  margin: 0 0 10px;
+}
+
+.team-card p {
+  margin: 0 0 15px;
+}
+
+.team-card button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.team-card button:hover {
+  background-color: #0056b3;
+}
+

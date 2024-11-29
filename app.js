@@ -47,7 +47,22 @@ app.get('/createTask', async (req, res) => {
         const data = jwt.verify(token, SECRET_KEY)
         res.render('createTask', data)
     } catch (error) {
-        
+        console.log(error)
+    }
+})
+
+// showing the teams view
+
+app.get('/teams', async (req, res) => {
+    const token = req.cookies.AccessToken
+
+    if (!token) { return res.status(400).send('not authorized') }
+    
+    try {
+        const data = jwt.verify(token, SECRET_KEY)
+        return res.render('teams', data)
+    } catch (error) {
+        console.log(error)
     }
 })
 

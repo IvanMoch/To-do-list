@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Teams</title>
+  <link rel="stylesheet" href="teams.css">
+  <script>
+    const userId = '<%= id %>' // ---------> Getting the user Id (used in userPage.js)
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <!-- Website Title -->
+    <div class="header-title">
+      <h1>To-Do-Web</h1>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <button class="nav-button" id="taskButton" >Tasks</button>
+      <button class="nav-button" id="teamsButton">Teams</button>
+      <button class="nav-button" >User</button>
+    </nav>
+
+    <!-- Logout Button -->
+    <div class="logout">
+      <button id="logout-button">Logout</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Your Teams</h2>
+    <div id="teamsContainer" class="teams-container"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 My Web App. All rights reserved.</p>
+  </footer>
+
+  <script src="teams.js"></script>
+</body>
+</html>

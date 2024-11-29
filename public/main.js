@@ -6,6 +6,7 @@ const taskContainer = document.querySelector('#taskContainer')
 const doneButton = document.querySelectorAll('.finishTask')
 const logoutButton = document.querySelector('#logout-button')
 const createTaskButton = document.querySelector('#createTaskButton')
+const taskButton = document.querySelector('#teamsButton')
 
 //Save a new Task
 
@@ -40,6 +41,20 @@ createTaskButton.addEventListener('click', (e) => {
       }
       
       alert('something goes wrong')
+  })
+})
+
+//Go to the tasks view
+
+taskButton.addEventListener('click', (e) => {
+  e.preventDefault()
+
+  fetch('/teams', { method: 'GET' })
+    .then((res) => {
+      if (res.ok) {
+      return window.location.href = '/teams'
+      }
+      alert('Error while fetching "/teams"')
   })
 })
 

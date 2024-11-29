@@ -32,9 +32,9 @@ addButton.addEventListener('click', (e) => {
     })
         .then((res) => {
             if (res.ok) {
-            return alert('The task was created')
+            return showNotification('Task was created successfully', 'success')
             }
-            alert('We could not save the new task')
+            return showNotification('Unexpected error occurred', 'error')
     })
 })
 
@@ -75,3 +75,17 @@ taskButton.addEventListener('click', (e) => {
     }
   })
 })
+
+//function to show a notification if the task was created
+
+function showNotification(message, type) {
+  const notificationArea = document.getElementById('notificationArea');
+  notificationArea.textContent = message;
+  notificationArea.className = `notification ${type}`; // Add success/error class
+  notificationArea.style.display = 'block'; // Show the notification
+
+  // Automatically hide the notification after 3 seconds
+  setTimeout(() => {
+    notificationArea.style.display = 'none';
+  }, 3000);
+}
