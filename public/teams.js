@@ -1,5 +1,8 @@
 const taskButton = document.querySelector('#taskButton')
 const taskContainer = document.querySelector('#teamsContainer')
+const createTeamModal = document.querySelector('#createTeamModal')
+const teamForm = document.querySelector('#createTeamForm')
+const createTeamButton = document.querySelector('#createButton')
 
 //Show main view
 
@@ -20,6 +23,14 @@ taskButton.addEventListener('click', (e) => {
 document.addEventListener('DOMContentLoaded', (e) => {
     showTeams()
 })
+
+// show the form to create a new team
+
+createTeamButton.addEventListener('click', (e) => {
+    e.preventDefault()
+    showCreateTeamModal()
+})
+
 
 
 function showTeams() {
@@ -46,4 +57,19 @@ function showTeams() {
 
             });
         })
+}
+
+// Show the modal
+function showCreateTeamModal() {
+  createTeamModal.style.display = 'flex';
+}
+
+// Close the modal
+function closeCreateTeamModal() {
+  createTeamModal.style.display = 'none';
+}
+
+// Clear the form
+function clearCreateTeamForm() {
+  teamForm.reset();
 }

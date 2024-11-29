@@ -33,7 +33,35 @@
   <!-- Main Content -->
   <main>
     <h2>Your Teams</h2>
+    <button class="create-team-button" id="createButton">Create New Team</button>
     <div id="teamsContainer" class="teams-container"></div>
+
+    <div id="createTeamModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <button class="close-button" onclick="closeCreateTeamModal()">×</button>
+    <h3>Create New Team</h3>
+    <form id="createTeamForm">
+      <!-- Title Field -->
+      <label for="teamTitle">Team Title</label>
+      <input type="text" id="teamTitle" name="teamTitle" placeholder="Enter team title" required>
+
+      <!-- Description Field -->
+      <label for="teamDescription">Description</label>
+      <input type="text" id="teamDescription" name="teamDescription" placeholder="Enter team description" required>
+
+      <!-- Members Field -->
+      <label for="teamMembers">Add Members</label>
+      <input type="text" id="teamMembers" name="teamMembers" placeholder="Enter member IDs, separated by commas" required>
+
+      <!-- Buttons -->
+      <div class="form-buttons">
+        <button type="button" onclick="clearCreateTeamForm()" class="clear-button">Clear</button>
+        <button type="submit" class="save-button">Save Team</button>
+      </div>
+    </form>
+  </div>
+</div>
+
   </main>
 
   <!-- Footer -->
