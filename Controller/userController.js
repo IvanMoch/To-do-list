@@ -43,7 +43,22 @@ export class UserController {
 
     static logout = async (req, res) => {
     res.clearCookie('AccessToken').render('index')
-   }
+    }
+    
+    static searchUser = async (req, res) => {
+        
+        const { word } = req.params
+        try {
+            const users = await mongoModel.getAllUsers()
+            const result = users.filter((element) => {
+                return (element.username.toLowerCase()).includes(word.toLowerCase())
+            })
+            return res.status(200).json(result)
+        } catch (error) {
+            console.log(error)
+            return res.status(200).json({error: 'Error while getting the users'})
+        }
+    }
 
     static verifyUser = async (req, res) => {
 

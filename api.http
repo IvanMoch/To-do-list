@@ -12,12 +12,16 @@ POST http://localhost:3000/user/login
 Content-Type: application/json
 
 {
-    "username" : "IvanRoot",
+    "username" : "A",
     "password" : "Iamp-2608"
 }
 ### Get user information
 
 GET http://localhost:3000/user/A
+
+### search user by word
+
+GET http://localhost:3000/user/search/anro
 
 ### Create a new team
 

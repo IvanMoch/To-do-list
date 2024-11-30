@@ -48,6 +48,17 @@ export class mongoModel {
         }
     }
 
+    static async getAllUsers() {
+
+        try {
+            const users = await User.find({}, 'username')
+            return users
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
     //method to create a new team
 
     static async insertTeam({ title, description, members }) {

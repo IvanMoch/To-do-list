@@ -50,8 +50,15 @@
       <input type="text" id="teamDescription" name="teamDescription" placeholder="Enter team description" required>
 
       <!-- Members Field -->
-      <label for="teamMembers">Add Members</label>
-      <input type="text" id="teamMembers" name="teamMembers" placeholder="Enter member IDs, separated by commas" required>
+      <label for="teamMembers">Search for Members</label>
+      <input
+        type="text"
+        id="teamMembers"
+        name="teamMembers"
+        placeholder="Type a username"
+        autocomplete="off"
+      >
+      <ul id="searchResults" class="search-results"></ul>
 
       <!-- Buttons -->
       <div class="form-buttons">

@@ -39,4 +39,5 @@ export class teamController{
 
             return res.status(200).json(workTeams)
     }
+
 }

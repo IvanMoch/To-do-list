@@ -192,7 +192,6 @@ form label {
 form input {
   width: 80%;
   padding: 10px;
-  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -200,6 +199,7 @@ form input {
 .form-buttons {
   display: flex;
   justify-content: space-between;
+  margin-top: 15px;
 }
 
 .clear-button {
@@ -228,4 +228,31 @@ form input {
 
 .save-button:hover {
   background-color: #218838;
+}
+
+.search-results {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px;
+  margin-left: 23px;
+  border: 1px solid #ddd; 
+  max-height: 150px; 
+  overflow-y: auto; 
+  background-color: #fff; 
+  position: absolute; 
+  z-index: 10; 
+  width: 80%; 
+  border-radius: 5px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+}
+
+.search-results li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-results li:hover {
+  background-color: #f0f0f0; 
 }
