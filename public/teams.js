@@ -1,6 +1,8 @@
 const taskButton = document.querySelector('#taskButton')
 const taskContainer = document.querySelector('#teamsContainer')
 const createTeamModal = document.querySelector('#createTeamModal')
+const createTeamContainer = document.querySelector('#createTeamContainer')
+const teamInfContainer = document.querySelector('#teamInfContainer')
 const teamForm = document.querySelector('#createTeamForm')
 const createTeamButton = document.querySelector('#createButton')
 const searchResult = document.querySelector('#searchResults')
@@ -93,7 +95,7 @@ function showTeams() {
                 newTeam.innerHTML = `
                 <h3 class="team-title">${element.title}</h3>
                 <p class="team-description">${element.description}</p>
-                <button class="view-details-button">View Details</button>
+                <button class="view-details-button" onclick="showTeamDetails('${element._id}')">View Details</button>
                 `
 
                 taskContainer.appendChild(newTeam)
@@ -146,12 +148,21 @@ teamForm.addEventListener('submit', (e) => {
 
 // Show the modal
 function showCreateTeamModal() {
-  createTeamModal.style.display = 'flex';
+    createTeamModal.style.display = 'flex';
+    createTeamContainer.style.display = ''
 }
 
-// Close the modal
+// Close the form
 function closeCreateTeamModal() {
-  createTeamModal.style.display = 'none';
+    createTeamModal.style.display = 'none';
+    createTeamContainer.style.display = 'none'
+}
+
+//close the description
+
+function closeTeamInfModal() {
+    createTeamModal.style.display = 'none'
+    teamInfContainer.style.display = 'none'
 }
 
 // Clear the form
@@ -189,4 +200,46 @@ function updateSelectedMembers() {
     membersList.appendChild(li)
 
     modalContent.appendChild(membersList);
+}
+
+
+// Show team details
+
+function showTeamDetails(id) {
+    createTeamModal.style.display = 'flex'
+    teamInfContainer.style.display = ''
+
+    fetch(`/team/id/${id}`, { method: 'GET' })
+        .then((res) => {
+            if (res.ok) {
+            return res.json()
+        }
+        })
+        .then((team) => {
+            //TODO : Take the html of the description and insert it here in the description container
+            teamInfContainer.innerHTML = `
+            <span class="close-button" onclick="closeTeamInfModal()">×</span>
+
+            <!-- Team Title -->
+            <h2 id="teamTitle">${team.title}</h2>
+
+            <!-- Team Description -->
+            <p id="teamDescription">${team.description}</p>
+
+            <!-- Team Members -->
+            <h3>Members</h3>
+            <ul id="membersDescription">
+            </ul>
+            <button class="erase-team-button" onclick="eraseTeam()">Erase Team</button>
+            `;
+
+            const teamMembers = document.querySelector('#membersDescription')
+            
+                team.members.forEach((member) => {
+                    const newMember = document.createElement('li')
+                    newMember.textContent = `${member.username}`
+                    teamMembers.appendChild(newMember)
+                })
+            
+    })
 }

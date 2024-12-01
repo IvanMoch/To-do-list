@@ -256,3 +256,18 @@ form input {
 .search-results li:hover {
   background-color: #f0f0f0; 
 }
+.erase-team-button {
+  background-color: #e74c3c; /* Red background */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding for clickable area */
+  font-size: 1rem; /* Standard font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  margin-top: 20px; /* Spacing above the button */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.erase-team-button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
