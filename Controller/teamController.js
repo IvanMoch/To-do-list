@@ -40,4 +40,15 @@ export class teamController{
             return res.status(200).json(workTeams)
     }
 
+    static deleteTeam = async (req, res) => {
+        const { id } = req.params
+        
+        try {
+            const deletedTeam = await mongoModel.deleteTeam(id)
+            return res.status(200).json(deletedTeam)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
 }

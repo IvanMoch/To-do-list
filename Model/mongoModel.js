@@ -87,6 +87,19 @@ export class mongoModel {
         }
     }
 
+    // method to delete a team
+
+    static async deleteTeam(teamId) {
+        try {
+            const deletedTeam = await Team.findByIdAndDelete(teamId)
+            if (deletedTeam) {
+                return deletedTeam
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     //log user
 
     static async logUser({ username, password }) {

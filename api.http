@@ -70,5 +70,6 @@ GET http://localhost:3000/task/team/6732600474463d58f6516f1e
 
 DELETE http://localhost:3000/task/67411dd6fae0f9250b915133
 
-###
-GET http://localhost:3000/createTask
+### Erase a team by it's ID
+
+DELETE http://localhost:3000/team/67325ff574463d58f6516f1c

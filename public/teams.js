@@ -137,12 +137,13 @@ teamForm.addEventListener('submit', (e) => {
                 newTeam.innerHTML = `
                 <h3 class="team-title">${team.title}</h3>
                 <p class="team-description">${team.description}</p>
-                <button class="view-details-button">View Details</button>
+                <button class="view-details-button" onclick="showTeamDetails('${team._id}')">View Details</button>
                 `
 
                 taskContainer.appendChild(newTeam)
             })
     clearCreateTeamForm()
+    closeCreateTeamModal()  
     selectedMembers = []
 })
 
@@ -230,7 +231,7 @@ function showTeamDetails(id) {
             <h3>Members</h3>
             <ul id="membersDescription">
             </ul>
-            <button class="erase-team-button" onclick="eraseTeam()">Erase Team</button>
+            <button class="erase-team-button" onclick="deleteTeam('${team._id}')">Erase Team</button>
             `;
 
             const teamMembers = document.querySelector('#membersDescription')
@@ -241,5 +242,20 @@ function showTeamDetails(id) {
                     teamMembers.appendChild(newMember)
                 })
             
+    })
+}
+
+//delete a team and remove
+
+function deleteTeam(id) {
+    fetch(`/team/${id}`, { method: 'DELETE' })
+        .then((res) => {
+            if (res.ok) {
+                const teamCard = document.getElementById(id)
+                if (teamCard) {
+                    teamCard.remove()
+                    closeTeamInfModal()
+                }
+        }
     })
 }
