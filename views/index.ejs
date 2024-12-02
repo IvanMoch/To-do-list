@@ -4,70 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
-    <title>LOGIN</title>
+    <title>Login</title>
   </head>
-  <body type="body">
-    <div id="LogInContainer" class="formContainer">
-      <h2 class="formTitle">Log in</h2>
-      <form method="post" name="signInForm">
-        <label for="username" class="text"><strong>Username: </strong></label
-        ><br />
-        <input
-          type="text"
-          id="username"
-          class="textFields"
-          name="username"
-          required
-          maxlength="12"
-          placeholder="username" />
-        <br />
+  <body>
+    <!-- Header -->
+    <header class="appHeader">
+      <h1>To-do-web</h1>
+    </header>
 
-        <label class="text"><strong>password: </strong></label><br />
-        <input
-          type="password"
-          id="password"
-          class="textFields"
-          required
-          placeholder="password" />
-        <br />
+    <!-- Main Content -->
+    <main class="mainContainer">
+      <!-- Login Form -->
+      <div id="LogInContainer" class="formContainer">
+        <h2 class="formTitle">Log In</h2>
+        <form method="post" name="signInForm">
+          <label for="username" class="text"><strong>Username:</strong></label>
+          <input
+            type="text"
+            id="username"
+            class="textFields"
+            name="username"
+            required
+            maxlength="12"
+            placeholder="Enter your username" />
+          <label for="password" class="text"><strong>Password:</strong></label>
+          <input
+            type="password"
+            id="password"
+            class="textFields"
+            required
+            placeholder="Enter your password" />
+          <input type="submit" value="Sign In" class="submitButton" />
+        </form>
+      </div>
 
-        <input type="submit" value="sign in" class="submitButton" />
-      </form>
-    </div>
+      <!-- Signup Form -->
+      <div id="signUpContainer" class="formContainer">
+        <h2 class="formTitle">Sign Up</h2>
+        <form name="signUpForm" method="post">
+          <label for="Newusername" class="text"><strong>Username:</strong></label>
+          <input
+            type="text"
+            id="Newusername"
+            class="textFields"
+            name="username"
+            required
+            maxlength="12"
+            placeholder="Choose a username" />
+          <label for="NewPassword" class="text"><strong>Password:</strong></label>
+          <input
+            type="password"
+            id="NewPassword"
+            class="textFields"
+            required
+            placeholder="Create a password" />
+          <label for="ConfPassword" class="text"><strong>Confirm Password:</strong></label>
+          <input
+            type="password"
+            id="ConfPassword"
+            class="textFields"
+            required
+            placeholder="Confirm your password" />
+          <input type="submit" value="Sign Up" class="submitButton" />
+        </form>
+      </div>
+    </main>
 
-    <div id="signUpContainer" class="formContainer">
-      <h2 class="formTitle">sign Up</h2>
-      <form name="signUpForm" method="post">
-        <label for="Newusername" class="text"><strong>Username: </strong></label
-        ><br />
-        <input
-          type="text"
-          id="Newusername"
-          class="textFields"
-          name="username"
-          required
-          maxlength="12"
-          placeholder="username" />
-        <br />
-        <label class="text"><strong>password: </strong></label><br />
-        <input
-          type="password"
-          id="NewPassword"
-          class="textFields"
-          required
-          placeholder="password" />
-        <br />
-        <label class="text"><strong> confirm password: </strong></label><br />
-        <input
-          type="password"
-          id="ConfPassword"
-          class="textFields"
-          required
-          placeholder="confirm password" />
-        <br />
-        <input type="submit" value="sign up" class="submitButton" />
-      </form>
-    </div>
+    <!-- Footer -->
+    <footer class="appFooter">
+      <p>&copy; 2024 My Application. All rights reserved.</p>
+    </footer>
+    <script src="index.js"></script>
   </body>
-  <script src="index.js"></script>
 </html>
+

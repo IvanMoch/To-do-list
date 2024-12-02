@@ -11,6 +11,7 @@ const modalContent = document.querySelector('.modal-content')
 let membersList = document.querySelector('#membersList')
 const teamTitleField = document.querySelector('#teamTitle')
 const teamDescriptionField = document.querySelector('#teamDescription')
+const logoutButton = document.querySelector('#logout-button')
 
 let selectedMembers = [];
 
@@ -32,6 +33,18 @@ taskButton.addEventListener('click', (e) => {
 
 document.addEventListener('DOMContentLoaded', (e) => {
     showTeams()
+})
+
+//logout 
+
+logoutButton.addEventListener('click', (e) => {
+    e.preventDefault()
+    fetch('/user/logout', {method : 'POST'})
+        .then((res) => {
+            if (res.ok) {
+            window.location.href = '/'
+        }
+    })
 })
 
 // show the form to create a new team

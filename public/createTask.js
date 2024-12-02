@@ -4,6 +4,7 @@ const taskTittleField = document.querySelector('#taskTitle')
 const taskDueDateFIeld = document.querySelector('#taskDueDate')
 const taskDescription = document.querySelector('#taskDescription')
 const taskButton = document.querySelector('#taskButton')
+const logoutButton = document.querySelector('#logout-button')
 
 
 
@@ -11,6 +12,20 @@ const taskButton = document.querySelector('#taskButton')
 // Events when the DOM is loaded
 document.addEventListener('DOMContentLoaded', (e) => {
     insertWorkTeams()
+})
+
+//logout 
+
+//logout 
+
+logoutButton.addEventListener('click', (e) => {
+    e.preventDefault()
+    fetch('/user/logout', {method : 'POST'})
+        .then((res) => {
+            if (res.ok) {
+            window.location.href = '/'
+        }
+    })
 })
 
 //create the new Task

@@ -1,101 +1,98 @@
-.formContainer{
-    background-color: #2E2E2E;
-    width: 350px;
-    height: auto;
-    border-radius: 10px;
-    top: 0px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-    overflow: scroll;
-    overscroll-behavior: auto;
-    
-    
-    
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-
-.text{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: azure;
-    font-size: 20px;
+/* Header Styles */
+.appHeader {
+  background-color: #333;
+  color: #fff;
+  padding: 15px 20px;
+  text-align: center;
 }
 
-#labelUsername{
-    position: relative;
-    align-items: center;
+.appHeader h1 {
+  margin: 0;
+  font-size: 1.8rem;
 }
 
-.textFields{
-    border-radius: 20px;
-    border: 1px solid azure;
-    background-color: inherit;
-    text-align: center;
-    color: azure;
-    height: 20px;
-    margin: 10px;
+/* Main Content */
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 20px;
 }
 
-.textFields:hover{
-    box-shadow: 3px 3px 5px azure;
+/* Form Container */
+.formContainer {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+  margin: 20px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
 }
 
-.textFields:focus::placeholder{
-    opacity: 0;
+.formTitle {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
 }
 
-.textFields::placeholder{
-    color: azure;
-    opacity: 1;
+/* Form Fields */
+.text {
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
 }
 
-.formTitle{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: azure;
-    margin-top: 100px;
-    font-size: 30px;
-    position: relative;
-    top: 17px;
-    margin-bottom: 35px;
-    margin-top: 10px;
+.textFields {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
-.radioOptions{
-    color: azure;
-    font-family: 'Times New Roman', Times, serif;
+.textFields:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
-#choices{
-    background-color: inherit;
-    color: azure;
-    border: 1px solid azure;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    font-size: 17px;;
-    width: 80px;
-    height: 45px;
+/* Submit Button */
+.submitButton {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.submitButton{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-color: inherit;
-    color: azure;
-    border: 1px solid azure;
-    border-radius: 15px;
-    width: 70px;
-    height: 30px;
-    margin-top: 20px;
+.submitButton:hover {
+  background-color: #0056b3;
 }
 
-#submitButton button:hover {
-    color: #2E2E2E;
-    background-color: azure;
-}
-
-#submitButton button:active {
-    box-shadow: 1px 1px 5px azure;
+/* Footer Styles */
+.appFooter {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
 }

@@ -6,53 +6,53 @@ body {
   color: #333;
 }
 
-header {
+/* Header */
+.header {
+  background-color: #333;
+  color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #333;
-  color: #0066cc;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .header-title h1 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
-/* Navbar Styles */
 .navbar {
   display: flex;
   gap: 10px;
 }
 
 .nav-button {
-  background-color: #0066cc;
+  background-color: #444;
   color: #fff;
   border: none;
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 1rem;
   transition: background-color 0.3s ease;
 }
 
 .nav-button:hover {
-  background-color: #015bb6;
+  background-color: #555;
 }
 
-/* Logout Button */
-.logout-button {
+.logout button {
   background-color: #e74c3c;
   color: #fff;
   border: none;
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 1rem;
   transition: background-color 0.3s ease;
 }
 
-.logout-button:hover {
+.logout button:hover {
   background-color: #c0392b;
 }
 

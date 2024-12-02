@@ -49,10 +49,7 @@ function login (username, password) {
   })
     .then((res) => {
       if (res.ok) {
-        alert(`Welcome ${username}, you have logged in`)
-        setTimeout(() => {
           window.location.href = `/main`
-        }, 2000)
       } else {
         alert('Something were wrong')
       }

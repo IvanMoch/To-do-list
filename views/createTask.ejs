@@ -6,7 +6,7 @@
   <title>Create Task</title>
   <link rel="stylesheet" href="createTask.css">
   <script>
-    const userId = '<%= id %>' // ---------> Getting the user Id (used in userPage.js)
+    const userId = '<%= id %>' 
   </script>
 </head>
 <body>
@@ -21,12 +21,11 @@
     <nav class="navbar">
       <button class="nav-button" id="taskButton">Tasks</button>
       <button class="nav-button" onclick="navigateTo('teams')">Teams</button>
-      <button class="nav-button" onclick="navigateTo('user')">User</button>
     </nav>
 
     <!-- Logout Button -->
     <div class="logout">
-      <button class="logout-button" onclick="logout()">Logout</button>
+      <button id="logout-button">Logout</button>
     </div>
   </header>
 

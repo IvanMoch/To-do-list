@@ -92,7 +92,8 @@ function getAllTasks() { //TODO. solve the problem while fetching this API endpo
             tasks.forEach((task) => {
               const newTask = document.createElement('div')
 
-              const dueDate = new Date(task.dueDate).toISOString()
+              const date = new Date(task.dueDate)
+              const dueDate = `${date.getMonth()}-${date.getDay()}-${date.getFullYear()}`
               newTask.className = 'taskItem'
               newTask.id = task._id
 
@@ -103,7 +104,6 @@ function getAllTasks() { //TODO. solve the problem while fetching this API endpo
               <p>${task.description}</p>
               <h3>${element.title}</h3>
               <button class="finishTask">Done</button>
-              <button class="deleteTask">delete</button>
               
               `
 
