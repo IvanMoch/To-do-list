@@ -1,1 +1,3 @@
-# to do list
+TO-DO-LIST es una aplicación web que permite a los usuarios crear, gestionar y visualizar tareas de manera colaborativa. Los usuarios pueden formar grupos de trabajo y asignar tareas a los miembros del equipo. Cada miembro puede visualizar el progreso de las tareas y marcarlas como finalizadas para mantener a todos actualizados. Además, la aplicación permite gestionar tareas individuales o grupales, proporcionando una solución eficiente para la colaboración en proyectos.
+
+I developed a web application that allows users to collaboratively create, manage and visualize tasks. Users can form workgroups and assign tasks to team members. Each member can view the progress of tasks and mark them as completed to keep everyone updated. In addition, the application can manage individual or group tasks, providing an efficient solution for project collaboration.
